@@ -1,0 +1,6 @@
+OrderStatus,orders,amount
+Delivered,74628,68372677.1
+Shipped,15192,14083628.99
+Pending,4103,3737556.98
+Returned,3049,2780662.46
+Cancelled,3028,2851122.39

@@ -1,0 +1,12 @@
+-- Create these measures in Power BI after importing Amazon.csv
+Recorded Transaction Amount = SUM(Amazon[TotalAmount])
+Gross Line Value = SUMX(Amazon, Amazon[Quantity] * Amazon[UnitPrice])
+Total Orders = DISTINCTCOUNT(Amazon[OrderID])
+Unique Customers = DISTINCTCOUNT(Amazon[CustomerID])
+Units Sold = SUM(Amazon[Quantity])
+Average Recorded Amount per Order = DIVIDE([Recorded Transaction Amount], [Total Orders])
+Delivered Orders = CALCULATE([Total Orders], Amazon[OrderStatus] = "Delivered")
+Delivered Order % = DIVIDE([Delivered Orders], [Total Orders])
+Cancelled Orders = CALCULATE([Total Orders], Amazon[OrderStatus] = "Cancelled")
+Returned Orders = CALCULATE([Total Orders], Amazon[OrderStatus] = "Returned")
+Cancelled + Returned % = DIVIDE([Cancelled Orders] + [Returned Orders], [Total Orders])
